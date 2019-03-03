@@ -1,0 +1,14 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["Jacob Senitza <JCSHoosier@users.noreply.github.com>"]
+
+[dependencies]
+jni = { version = "0.10.2", default-features = false }
+
+[profile.release]
+lto = true
+
+[lib]
+name = "rust"
+crate-type = ["cdylib"]
