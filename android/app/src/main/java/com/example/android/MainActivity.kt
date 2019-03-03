@@ -2,7 +2,7 @@ package com.example.android
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         System.loadLibrary("rust")
-        Log.d("rust", hello("World"))
+
+        button_view.setOnClickListener {
+            val rustResult = hello("World")
+            text_view.text = rustResult
+        }
     }
 
     external fun hello(to: String): String
